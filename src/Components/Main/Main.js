@@ -43,7 +43,6 @@ function Main() {
   }
 
   function hold(dieId) {
-    console.log(dieId);
     setDice((prevDice) =>
       prevDice.map((die) => {
         return die.id === dieId ? { ...die, isHeld: !die.isHeld } : die;
