@@ -1,10 +1,10 @@
 import React from "react";
 import "./Die.css";
 
-function Die() {
+function Die({ number }) {
   return (
     <div className="die-face">
-      <h2>4</h2>
+      <h2>{number}</h2>
     </div>
   );
 }
