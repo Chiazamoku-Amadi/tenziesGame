@@ -30,11 +30,31 @@ function Main() {
   }
 
   function rollDice() {
-    setDice(newRoll());
+    // setDice(newRoll());
+
+    setDice((prevDice) =>
+      prevDice.map((die) => {
+        return die.isHeld ? die : generateNewDie();
+      })
+    );
+  }
+
+  function hold(dieId) {
+    console.log("Held");
+    setDice((prevDice) =>
+      prevDice.map((die) => {
+        return die.id === dieId ? { ...die, isHeld: !die.isHeld } : die;
+      })
+    );
   }
 
   const dieElements = dice.map((die) => (
-    <Die key={die.id} number={die.value} />
+    <Die
+      key={die.id}
+      number={die.value}
+      isHeld={die.isHeld}
+      holdDie={() => hold(die.id)}
+    />
   ));
 
   return (
