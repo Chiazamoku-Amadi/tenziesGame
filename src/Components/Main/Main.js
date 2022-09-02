@@ -29,6 +29,10 @@ function Main() {
     return newDice;
   }
 
+  function rollDice() {
+    setDice(newRoll());
+  }
+
   const dieElements = dice.map((die) => (
     <Die key={die.id} number={die.value} />
   ));
@@ -44,7 +48,7 @@ function Main() {
               its current value between rolls.
             </p>
             <div className="allDice">{dieElements}</div>
-            <button>Roll</button>
+            <button onClick={rollDice}>Roll</button>
           </div>
         </div>
       </div>
