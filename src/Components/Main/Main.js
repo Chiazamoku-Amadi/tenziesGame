@@ -29,7 +29,9 @@ function Main() {
     return newDice;
   }
 
-  const dieElements = dice.map((die) => <Die number={die.value} />);
+  const dieElements = dice.map((die) => (
+    <Die key={die.id} number={die.value} />
+  ));
 
   return (
     <section className="container">
